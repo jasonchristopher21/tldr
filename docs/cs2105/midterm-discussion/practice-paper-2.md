@@ -24,7 +24,7 @@ Demultiplexing: Receive incoming packets from the lower layer, "unpack" these an
 
 :::
 
-Correct answer would be demultiplexing. 
+Correct answer would be demultiplexing.
 
 ### Question 3
 
@@ -68,7 +68,7 @@ Option A: This is correct. As per tutorial question.
 
 Option B: This is incorrect. A UDP client can send data without the UDP server to exist, and no exception will be thrown. The client will just wait indefinitely (like me waiting for a girlfriend to come to my life T_T)
 
-Option C: This is incorrect. On the lecture example, you will see that the client does not need to make a `connect` function call to connect with the server. 
+Option C: This is incorrect. On the lecture example, you will see that the client does not need to make a `connect` function call to connect with the server.
 
 Option D: This is incorrect. UDP server can just accept from any connection, since it does not create a new socket for each connection.
 
@@ -85,6 +85,7 @@ If a corrupted packet or ACK is received, then it does nothing, since timeout wi
 ### Question 11
 
 Retransmission:
+
 - GBN will retransmit all packets within the sender window
 - SR will retransmit only that packet that was timeout
 - TCP will retransmit just that segment that triggered a timeout.
@@ -97,14 +98,29 @@ Selective repeat receiver will send an ACK for each packet that arrives. Hence, 
 
 The provided subnet is: **11000000.10101000.1010**0000.00000000 up to the first 20 bits.
 
-1. 192.168.15.1: **11000000.10101000.0000**1111.00000001, does not match
-2. 192.168.177.254: **11000000.10101000.1011**0001.11111110, does not match
-3. 192.188.168.230: **11000000.10111100.1010**1000.11100110, match
-4. 192.168.169.31: **11000000.10101000.1010**1001.00011111, match
+| Option | IP Address      | Binary Representation                   | Match? |
+| ------ | --------------- | --------------------------------------- | ------ |
+| i      | 192.168.15.1    | **11000000.10101000.0000**1111.00000001 | No     |
+| ii     | 192.168.177.254 | **11000000.10101000.1011**0001.11111110 | No     |
+| iii    | 192.188.168.230 | **11000000.10111100.1010**1000.11100110 | No     |
+| iv     | 192.168.169.31  | **11000000.10101000.1010**1001.00011111 | Yes    |
 
 :::tip
 
 Notice that options (1), (2) and (4) share the same two bytes with the subnet mask. Hence, option (3) is incorrect. We now only need to consider the third byte of options (1), (2) and (4), and compare it to match the first four bits of the third byte in the subnet mask.
+
+:::
+
+:::info
+
+Another alternative to seeing this problem can be, if I can determine the range of the IP addresses that fall inside the subnet mask, then I can determine which IP addresses are in the subnet mask, without converting each of them into the binary representation.
+
+Notice that the range basically depends on the third byte. Hence,
+
+Lower bound: `11000000.10101000.10100000.00000000` -> `192.168.160.0`<br/>
+Upper bound: `11000000.10101000.10101111.11111111` -> `192.168.175.255`
+
+Basically anything that falls within 192.168.160._ to 192.168.175._ should be considered under the subnet mask.
 
 :::
 
@@ -120,12 +136,56 @@ Hence, the answer is C.
 
 ### Question 15
 
+The intuition behind this question is, how many segments will cause a wrap-around (i.e. exhaust the sequence numbers from 12,345 to $2^{32}-1$, then back from 0 to 2,105 + 1,024).
+
+Sequence number of the first byte: 12,345
+Sequence number of the segment after the last segment: 2,105 + 1,024 = 3,129
+
+Number of bytes sent in total: $2^{32} + 3,129 - 12,345 = 4,294,958,080$ bytes
+Hence, number of segments is $\frac{4,294,976,512}{1024}=4,194,295$ segments
+
 ### Question 16
 
+Out of the available options, only 2 does not fall in the criteria of $6 \pm (3-1)=6\pm 2$.
+
+0 is reachable, because it is possible that the window is [6, 7, 0] since the sequence number only uses 3 bits. In this case, the scenario that 0 is the next packet being sent is:
+
+- Suppose the previous window is [5, 6, 7]
+- Sender receives ACK5 and ACK7. Window now shifts to [6, 7, 0]
+- Sender did not receive ACK6, triggers timeout. Packet 6 is now being sent
+- Sender receives ACK6.
+- Window will now shift to [0, 1, 2], Packet 0 is being sent next.
+
 ### Question 17
+
+You can check the following diagram:
+
+Analysis:
+
+- Propagation delay from A - R and R - B is only triggered once, since data is sent back-to-back. <br/> Hence, $d_{prop} = 0.1s + 0.15s = 0.25s$.
+- For transmission delay, it is $2 * k + 0.5s$, since it seems that the variable item is the 2s transmission delay. 0.5 s transmission delay in host A is only incurred once by the first packet.
+
+Hence, total delay is $0.25 + 0.5 + 2k = 0.75 + 2k$.
 
 ### Question 18
 
 ### Question 19
 
+:::info
+
+UDP length field is inclusive of **both** the data and the UDP header
+
+:::
+
+UDP header consists of 32 \* 2 bits = 64 bits = 8 bytes. Hence, if the UDP packet does not have any data inside, then the length should still reflect the header length, which is 8. In binary representation, this is `1000`.
+
 ### Question 20
+
+Note the following:
+
+- First green arrow will send a value of S = 30, since X expects byte #30 to come next from the A = 30 value of the first blue arrow.
+- First green arrow will send a value of A = 200, since Y expects byte #200 to come next, as bytes 100 - 199 has arrived from X in the first blue arrow.
+- Since all packets from X has safely arrived at Y, by the time third arrow is sent, A = 100 (seq num of first packet) + 300 (length received) = 400
+- Since this is the third packet sent by Y, seq num would be 30 + 100 + 100 = 230.
+
+Hence, S = 230 and A = 400

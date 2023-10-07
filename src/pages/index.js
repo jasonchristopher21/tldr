@@ -17,9 +17,14 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
+            to="/docs/cs2105/Introduction">
+            CS2105 Materials
+          </Link>          
+          {/* <Link
+            className="button button--secondary button--lg"
+            to="/docs/cs2040s/Introduction">
+            CS2040S Materials
+          </Link> */}
         </div>
       </div>
     </header>
@@ -34,7 +39,7 @@ export default function Home() {
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
+        {/* <HomepageFeatures /> */}
       </main>
     </Layout>
   );

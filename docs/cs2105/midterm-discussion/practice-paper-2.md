@@ -169,6 +169,13 @@ Hence, total delay is $0.25 + 0.5 + 2k = 0.75 + 2k$.
 
 ### Question 18
 
+Stop and wait protocol: ACK must be received before another packet can be sent. Since each packet has the same transmission rate, transmission delay and propagation delay, it is possible for us to consider only the throughput of one packet, instead of the entire 10 packets. (duh, who wants to count more if you can count less :O)
+
+- Transmission delay: $d_{trans} = \frac{1000 \times 8}{10^6} = 8 ms$
+- Round trip time: 24 ms
+
+Throughput: $\frac{file size}{end-to-end delay} = \frac{1000 \times 8}{0.008 + 0.024} = 250 \space kbps$
+
 ### Question 19
 
 :::info

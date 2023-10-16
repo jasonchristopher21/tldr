@@ -61,15 +61,30 @@ const config = {
         },
       }),
     ],
-  ],  
-  
+  ],
+
   stylesheets: [
     {
-      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
-      type: 'text/css',
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
+      type: "text/css",
       integrity:
-        'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
-      crossorigin: 'anonymous',
+        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+      crossorigin: "anonymous",
+    },
+  ],
+
+  plugins: [
+    // ....
+    async function myPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
     },
   ],
 
@@ -98,12 +113,12 @@ const config = {
             label: "CS2105",
           },
           {
-            type: 'docSidebar',
+            type: "docSidebar",
             sidebarId: "commitSidebar",
             position: "left",
             label: "CommIT Tech",
           },
-          { to: "/blog", label: "Blog", position: "left" },
+          // { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/jasonchristopher21",
             label: "GitHub",
@@ -124,7 +139,7 @@ const config = {
               {
                 label: "CS2040S",
                 to: "/docs/cs2040s/Introduction",
-              }
+              },
             ],
           },
           // {
@@ -146,7 +161,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['java'],
+        additionalLanguages: ["java"],
       },
     }),
 };

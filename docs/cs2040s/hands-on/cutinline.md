@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Week 3: Cut in Line
 
 ## Problem Statement
@@ -110,6 +114,66 @@ Let us use ArrayList instead!
 
 <iframe src="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" width="720" height="360" />
 
+The below shows how the _uncompleted_ code would look like using the ArrayList instead of manual shifting
+
+
+```java title="cutinline.java"
+import java.util.*;
+import java.io.*;
+
+public class cutinline {
+    public static void main(String[] args) throws IOException {
+        // Setup I/O methods
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter pw = new PrintWriter(System.out);
+
+        // Setup the queue using ArrayList
+        // highlight-start
+        ArrayList<String> line = new ArrayList<>();
+        // highlight-end
+
+        // Setup the initial line
+        int N = Integer.parseInt(br.readLine());
+        for (int i = 0; i < N; i++) {
+            // highlight-start
+            line.add(br.readLine());
+            // highlight-end
+        }
+
+        // Perform Commands
+        int C = Integer.parseInt(br.readLine());
+
+        while (C-- > 0) {
+            String[] command = br.readLine().split(" ");
+
+            // Cut command
+            if (command[0].equals("cut")) {
+                String cutter = command[1];
+                String poorGuy = command[2];
+                
+                // Find where the poor guy is located
+                // highlight-start
+                int position = line.indexOf(poorGuy);
+                // highlight-end
+
+                // Place the cutter in the poor guy's position
+                // highlight-start
+                line.add(position, cutter);
+                // highlight-end
+            }
+        }
+
+        // Print the final line
+        for (String person : line) { // we can use this instead of an index :)
+            pw.println(person);
+        }
+        
+        pw.flush();
+        br.close();
+    }
+}
+```
+
 ### Sol 3: Linked Lists
 
-A bit overkill :") but will be seen in the join strings hands-on problem
+A bit overkill :") but will be seen in the `/joinstrings` hands-on problem

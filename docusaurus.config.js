@@ -114,6 +114,12 @@ const config = {
           },
           {
             type: "docSidebar",
+            sidebarId: "cs2109Sidebar",
+            position: "left",
+            label: "CS2109S",
+          },
+          {
+            type: "docSidebar",
             sidebarId: "commitSidebar",
             position: "left",
             label: "CommIT Tech",

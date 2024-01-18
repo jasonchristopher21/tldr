@@ -5,7 +5,7 @@ sidebar_position: 1
 # Introduction and Resources
 
 <!-- TODO: Add tutorial group -->
-Welcome to CS2105! I am Jason Christopher (you can call me Jason) and I am really excited to teach CS2105 Tutorials TXX, AY23/24 Semester 2!
+Welcome to CS2109S! I am Jason Christopher (you can call me Jason) and I am really excited to teach CS2109S Tutorial TXX, AY23/24 Semester 2!
 
 ## Tutorial Slides
 

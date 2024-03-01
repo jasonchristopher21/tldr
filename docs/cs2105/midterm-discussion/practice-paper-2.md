@@ -1,5 +1,10 @@
 # Practice Paper 2
 
+:::info
+Last updated: 1 March 2024<br>
+Updates made: Fixed typo for question 15
+:::
+
 ### Question 1
 
 Let us consider the options that are provided

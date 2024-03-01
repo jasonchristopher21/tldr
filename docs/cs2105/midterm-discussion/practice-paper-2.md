@@ -76,7 +76,7 @@ Option D: This is incorrect. UDP server can just accept from any connection, sin
 
 `nslookup` is used to find the DNS mapping between the hostname and IP address.
 
-![](https://media.discordapp.net/attachments/816338612001701899/1160140227189420052/image.png?ex=653393c8&is=65211ec8&hm=b06724e189da061a4b0123c583a5b58e0902a03879203144ee979d6d9fbb233e&=&width=697&height=600)
+![](https://cdn.discordapp.com/attachments/816338612001701899/1160140227189420052/image.png?ex=65ec25c8&is=65d9b0c8&hm=d710ae7348381a60c46ecc90abce79b822f53ef854b7477fadae8da80a2191e1&)
 
 ### Question 10
 

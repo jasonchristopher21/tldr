@@ -142,7 +142,7 @@ Sequence number of the first byte: 12,345
 Sequence number of the segment after the last segment: 2,105 + 1,024 = 3,129
 
 Number of bytes sent in total: $2^{32} + 3,129 - 12,345 = 4,294,958,080$ bytes
-Hence, number of segments is $\frac{4,294,976,512}{1024}=4,194,295$ segments
+Hence, number of segments is $\frac{4,294,958,080}{1024}=4,194,295$ segments
 
 ### Question 16
 

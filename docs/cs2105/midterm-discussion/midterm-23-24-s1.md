@@ -36,6 +36,8 @@ RFC stands for Request For Comments
 
 ### Question 5
 
+_(skipped, quite straightforward. Refer to tutorial material if you are unsure how to find the checksum)_
+
 ### Question 6
 
 - ACK # and SEQ # are for handling duplicates and packet ordering
@@ -45,6 +47,8 @@ RFC stands for Request For Comments
 **Option B**
 
 ### Question 7
+
+Check lecture slides
 
 **Option D**
 
@@ -84,9 +88,15 @@ IP address of the host is only those found under the "ANSWER SECTION". So, it ha
 
 Just need to check which one contains consecutiive 1s, followed by consecutive 0s
 
+Option A: 193 (DEC) = 1100 0001 (BIN) breaks this rule.
+
+**Option A**
+
 ### Question 13
 
 Also in the lecture slides
+
+**Option D**
 
 ### Question 14
 
@@ -108,6 +118,8 @@ Host bit consists of 11 bits
 
 - GBN and SR clearly are incorrect. These are pipelined protocols
 - UDP and TCP also not
+
+**Option E**
 
 ### Question 17
 

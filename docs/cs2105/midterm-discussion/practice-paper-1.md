@@ -74,6 +74,18 @@ Let us consider each option:
 
 ### Question 7
 
+Let us consider each option:
+
+- Option A is true. If the receiver buffer is full, then there is nowhere else to store the newly receive packet, so the receiver may discard the packet. This would trigger a retransmission at a later time, in hopes that the receiver buffer won't be full by that time comes.
+
+- Option B is false. Note that this is a "Router-to-router" communication. Since routers are located on the network layer, thus, the transport layer is not involved. Check the diagram below to learn more about which devices (i.e. host, router, switch) reads which layers. (reference: Lecture 9 slides)
+
+![](./imgs/host-router-switch.png)
+
+- Option C is false. Same reason as above (option B).
+
+- Option D is false. Option D explains circuit-switching, not packet-switching as we have learned in the lectures. Thus, there is no need to reserve a circuit or a path for a packet. Instead, a packet would be passed on from A to B (with intermediate nodes) through the routing algorithm and protocols.
+
 ### Question 8
 
 :::info
@@ -115,6 +127,13 @@ To solve this question, you can convert to binary and you should be able to dete
 
 ### Question 10
 
+Note that the four options provided are just a combination of either the sender resends the data packet or does nothing, and either the receiver sends ACK for previous packet or does nothing. Here's the intuition:
+
+- If the receiver does nothing, for rdt3.0, this will trigger the sender to think that the data packet has not arrived. Since no ACK is received, this will trigger a timeout and a retransmission, causing an infinite loop. Thus, options A and C are incorrect.
+
+- Recall that if you receive a duplicate ACK here, that means the receiver receives the same packet more than once. If the sender resends the _same_ data packet, then this would just worsen the problem of duplicates, and causing an infinite loop similar to the above option. Thus, options C and D are incorrect.
+
+Eliminating the three options, we have option B as our main contender, which is in fact the correct answer. (Follow up: why?)
 
 ### Question 11
 

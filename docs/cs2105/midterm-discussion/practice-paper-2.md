@@ -1,8 +1,10 @@
 # Practice Paper 2
 
 :::info
-Last updated: 1 March 2024<br/>
-Updates made: Fixed typo for question 15
+Last updated: 7 March 2024<br/>
+Updates made: 
+- Question 4: There was a typo. Port number is 16 **bits** long, not 16 bytes. Thanks Winston for noticing.
+- Question 15: Fixed typo (from 1 March update)
 :::
 
 ### Question 1
@@ -51,7 +53,7 @@ Option E is correct. Remember this screen?
 
 ### Question 4
 
-Lecture note. A port number is 16 bytes long.
+Lecture note. A port number is 16 bits long.
 
 ### Question 5
 

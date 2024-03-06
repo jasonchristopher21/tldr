@@ -4,6 +4,13 @@ sidebar_label: Midterm 23/24 S1
 
 # Midterm Solutions (AY23/24 Sem 1)
 
+:::info
+Last updated on: 7 March 2024 <br/>
+Updates made:
+- Question 12: Option was incorrect, updated to option B. Thanks Jason Koh for noticing!
+- Question 24: Added the diagram for the question
+:::
+
 ### Disclaimer
 
 These are very rough solutions that I wrote just for the sake of teaching. I will be improving these in the near future.
@@ -88,9 +95,12 @@ IP address of the host is only those found under the "ANSWER SECTION". So, it ha
 
 Just need to check which one contains consecutiive 1s, followed by consecutive 0s
 
-Option A: 193 (DEC) = 1100 0001 (BIN) breaks this rule.
+- Option A: 193 (DEC) = 1100 0001 (BIN) breaks this rule.
+- Option B: 255.128.0.0 = 11111111.10000000.00000000.00000000. Rule is not violated, thus is the answer.
+- Option C: 1 (DEC) = 0000 0001 (BIN) breaks this rule
+- Option D: 1 (DEC) = 0000 0001 (BIN) breaks this rule
 
-**Option A**
+**Option B**
 
 ### Question 13
 
@@ -203,7 +213,7 @@ Number of packets = ceil(9000 / 920) = 10 packets
 
 Size of last packet = 9000 - 920 \* 9 + 80 = 800 b
 
-[insert diagram here]
+![](./imgs/23-24-s1-24.jpeg)
 
 4 ms + 1 ms + 4 ms + 9 \* 1 ms + 0.8 ms = 18.8 ms
 

@@ -18,6 +18,10 @@ From it's name, it tells you that it is tracing the route to some domain or IP a
 
 The "trace" in "traceroute" means that it provides information about each router that it passes through on the way to the destination.
 
+### Protocol
+
+`traceroute` command uses ICMP (Internet Control Message Protocol)
+
 ### Usage
 
 You can use traceroute with an IP address or domain name
@@ -56,15 +60,17 @@ Now, let us examine how the rows are structured.
 - We will then see that we will head towards the destination's local ISP.
 - Finally, we will get a router on the network that the domain is hosted on, and lastly the host that the domain is hosted on directly (if the maximum number of hops is not yet exceeded)
 
-### Protocol
-
-`traceroute` command uses ICMP (Internet Control Message Protocol)
-
 ## `nslookup`
 
 ### What, when, why
 
 `nslookup` is used to find the IP address that corresponds to a host, or the domain name that correspons to an IP address (a process called "Reverse DNS Lookup"). 
+
+### Protocol
+
+Uses UDP by default. 
+
+May also use TCP (Transmission Control Protocol) if the DNS response is too large to fit in a single UDP packet, as TCP allows for larger data transmission. This is often the case when querying for DNS resource records such as DNSSEC-related records or when dealing with zone transfers.
 
 ### Usage
 
@@ -137,6 +143,22 @@ This answer is said to be **non-authoritative** because it is provided by the lo
 :::note
 Notice that the last two addresses are using IPv6 format instead of IPv4 format
 :::
+
+## `dig`
+
+### Fun fact: `dig` nothing?
+
+:::note[Question]
+
+Can you run `dig` command without specifying anything?
+
+:::
+
+Funny enough, yes! You can run the `dig` command without specifying anything. Unlike most commands which displays some kind of a usage instructions, if you run `dig` command without specifying any domain name, it will query out the root name servers!
+
+![](./imgs/commands-dig-funfact.png)
+
+
 
 ## Acknowledgements
 

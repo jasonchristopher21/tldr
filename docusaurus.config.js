@@ -108,15 +108,15 @@ const config = {
           },
           {
             type: "docSidebar",
-            sidebarId: "cs2105Sidebar",
+            sidebarId: "cs3264Sidebar",
             position: "left",
-            label: "CS2105",
+            label: "CS3264",
           },
           {
             type: "docSidebar",
-            sidebarId: "cs2109Sidebar",
+            sidebarId: "cs2105Sidebar",
             position: "left",
-            label: "CS2109S",
+            label: "CS2105",
           },
           {
             type: "docSidebar",

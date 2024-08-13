@@ -23,8 +23,8 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/cs2040s/Introduction">
-            CS2109S Materials
+            to="/docs/cs3264/Introduction">
+            CS3264 Materials
           </Link>
           </div>
         </div>

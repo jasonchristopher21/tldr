@@ -18,8 +18,8 @@ function HomepageHeader() {
           <div className="flex gap-4 mt-6">    
           <Link
             className="button button--secondary button--lg"
-            to="/docs/cs2105/Introduction">
-            CS2105 Materials
+            to="/docs/cs2040s/Introduction">
+            CS2040S Materials
           </Link>
           <Link
             className="button button--secondary button--lg"
